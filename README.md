@@ -2,7 +2,7 @@
  
 # Prateek Kumar Singh – Portfolio
 
-Live Site: [PrateekKumarSingh.github.io](https://Prateek-KumarSingh.github.io)
+Live Site: [Prateek-Kumar.Singh.github.io](https://prateekdotnetetrm.github.io/)
 
 Energy Consultant | .NET & Azure Specialist | ETRM Expert
 
