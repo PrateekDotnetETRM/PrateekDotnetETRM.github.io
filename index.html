@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Prateek Kumar Singh | .NET & Azure Energy Consultant</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
 
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Prateek</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span id="typewriter"></span></h1>
+            <p class="hero-subtitle">.NET | C# | Azure | ETRM Energy Consultant</p>
+            <p class="hero-desc">10+ years building high-performance trading systems for European power & gas markets.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="https://www.linkedin.com/in/prateek-kumar-singh-6515ab185/" target="_blank" class="btn-secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <p>I’m an <strong>Energy Consultant</strong> with over <strong>10 years</strong> of hands-on experience in <strong>ETRM systems</strong> across European gas and power markets.</p>
+                <p>I specialize in translating complex business requirements into robust technical solutions using <strong>.NET, C#, and Microsoft Azure</strong>. I lead cross-functional teams to deliver digital transformation in energy trading.</p>
+                <p>From optimizing trade lifecycle latency by <strong>50%</strong> to reducing nomination errors by <strong>60%</strong>, I deliver measurable impact.</p>
+            </div>
+            <div class="about-img fade-in">
+                <img src="https://via.placeholder.com/400x500/1a1a2e/ffffff?text=Prateek+Kumar+Singh" alt="Prateek Kumar Singh">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section bg-alt">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+
+            <!-- .NET & C# Spotlight -->
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-code"></i> .NET & C# Mastery</h3>
+                <div class="skill-bar">
+                    <span>.NET Framework / Core</span>
+                    <div class="bar"><div class="fill" style="width:95%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <span>C# Development</span>
+                    <div class="bar"><div class="fill" style="width:98%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <span>WPF / WinForms / WCF</span>
+                    <div class="bar"><div class="fill" style="width:90%"></div></div>
+                </div>
+            </div>
+
+            <!-- Azure & Cloud -->
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-cloud"></i> Microsoft Azure</h3>
+                <div class="skill-bar">
+                    <span>Azure Functions / App Services</span>
+                    <div class="bar"><div class="fill" style="width:90%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <span>Azure SQL / Cosmos DB</span>
+                    <div class="bar"><div class="fill" style="width:85%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <span>Azure DevOps (CI/CD)</span>
+                    <div class="bar"><div class="fill" style="width:88%"></div></div>
+                </div>
+            </div>
+
+            <!-- ETRM & Energy -->
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-chart-line"></i> Energy Trading</h3>
+                <div class="skill-tags">
+                    <span>FIS Aligne</span><span>MTS Trade</span><span>ICE/Trayport</span>
+                    <span>Trade Lifecycle</span><span>Nomination</span><span EOD Settlement</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card fade-in">
+                <div class="project-icon"><i class="fas fa-bolt"></i></div>
+                <h3>ETRM Trade Lifecycle Optimization</h3>
+                <p><strong>C# & Azure Functions</strong> – Reduced end-to-end latency by <strong>50%</strong> via optimized data ingestion from ICE/Trayport.</p>
+                <span class="tech">C#, Azure, FIS Aligne, React</span>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Gas Nomination Workflow Automation</h3>
+                <p>Cut nomination errors by <strong>60%</strong> using <strong>C# automation scripts</strong> and real-time monitoring dashboards.</p>
+                <span class="tech">C#, .NET, Azure DevOps</span>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>EOD Process Performance Boost</h3>
+                <p>Improved EOD run time by <strong>15%</strong> with <strong>C# integration</strong> into FIS Aligne platform.</p>
+                <span class="tech">C#, SQL Server, Python</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section bg-alt">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>IT Consultant – Energy <span>@ Accenture, London</span></h3>
+                    <p class="date">Feb 2024 – Present</p>
+                    <ul>
+                        <li>Led regulatory change program for European power market</li>
+                        <li>UAT, regression testing, and bug resolution for FIS Aligne</li>
+                        <li>Technologies: <strong>.NET, Azure, React, Azure DevOps</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>App/Cloud Specialist <span>@ Accenture, Bangalore</span></h3>
+                    <p class="date">Jan 2022 – Feb 2024</p>
+                    <ul>
+                        <li>Streamlined ICE/Trayport data ingestion using <strong>C#</strong></li>
+                        <li>Deployed cloud-native solutions on Azure</li>
+                        <li>Optimized EOD with <strong>C# automation</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-info fade-in">
+                <p><i class="fas fa-phone"></i> +44 7741 577663</p>
+                <p><i class="fas fa-envelope"></i> Bytec0de.pk@hotmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> London, UK</p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/prateek-kumar-singh-6515ab185/" target="_blank">linkedin.com/in/prateek-kumar-singh</a></p>
+            </div>
+            <form class="contact-form fade-in">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
