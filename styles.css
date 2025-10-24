@@ -125,7 +125,7 @@ body {
 
 /* ——— SECTIONS ——— */
 .section {
-    padding: 100px 0;
+    padding: 100px 80px;
 }
 .section-title {
     text-align: center;
