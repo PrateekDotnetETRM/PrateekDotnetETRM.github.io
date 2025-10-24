@@ -1,81 +1,95 @@
-// ========================================
-// FULL script.js – Prateek Kumar Singh Resume
-// Features: Dark/Light, Print, Animations, PDF Feedback
-// ========================================
+// Typewriter
+const typewriterText = "Prateek Kumar Singh";
+let i = 0;
+const typewriterEl = document.getElementById('typewriter');
+function type() {
+    if (i < typewriterText.length) {
+        typewriterEl.innerHTML += typewriterText.charAt(i);
+        i++;
+        setTimeout(type, 100);
+    }
+}
+type();
 
-// 1. DARK/LIGHT TOGGLE
+// Mobile Menu
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Scroll Animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Progress Bars
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.fill').forEach(fill => {
+                const width = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => fill.style.width = width, 100);
+            });
+        }
+    });
+}, { threshold: 0.7 });
+document.querySelectorAll('.skill-category').forEach(cat => skillObserver.observe(cat));
+
+// Navbar Scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    navbar.style.background = window.scrollY > 50 ? 'rgba(15, 15, 26, 0.98)' : 'rgba(15, 15, 26, 0.95)';
+});
+
+// Dark/Light Mode Toggle
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
 const sunIcon = '<i class="fas fa-sun"></i>';
 const moonIcon = '<i class="fas fa-moon"></i>';
 
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
+if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light');
     themeToggle.innerHTML = moonIcon;
 } else {
     themeToggle.innerHTML = sunIcon;
 }
 
 themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    if (body.classList.contains('dark')) {
+    body.classList.toggle('light');
+    if (body.classList.contains('light')) {
         themeToggle.innerHTML = moonIcon;
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('theme', 'light');
     } else {
         themeToggle.innerHTML = sunIcon;
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme', 'dark');
     }
 });
 
-// 2. PRINT BUTTON
-document.querySelector('.print-btn').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (body.classList.contains('dark')) {
-        alert('Switching to Light Mode for printing...');
-        body.classList.remove('dark');
-        themeToggle.innerHTML = sunIcon;
-    }
-    setTimeout(() => window.print(), 300);
+// Form Success
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    const button = this.querySelector('button');
+    button.innerHTML = 'Sending...';
+    button.disabled = true;
+    setTimeout(() => {
+        alert('Message sent! I’ll reply soon.');
+        button.innerHTML = 'Send Message';
+        button.disabled = false;
+        this.reset();
+    }, 1000);
 });
-
-// 3. PDF DOWNLOAD FEEDBACK
-document.querySelector('.btn-primary').addEventListener('click', function(e) {
-    const btn = this;
-    const original = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
-    setTimeout(() => btn.innerHTML = original, 1500);
-});
-
-// 4. FADE-IN ON SCROLL
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.section, .job').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(15px)';
-    el.style.transition = 'all 0.6s ease';
-    observer.observe(el);
-});
-
-// 5. PRINT OPTIMIZATION
-window.onbeforeprint = () => {
-    if (body.classList.contains('dark')) {
-        body.classList.remove('dark');
-        themeToggle.innerHTML = sunIcon;
-    }
-};
-window.onafterprint = () => {
-    if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark');
-        themeToggle.innerHTML = moonIcon;
-    }
-};
-
-// 6. CONSOLE
-console.log('%c Resume Loaded | Prateek Kumar Singh', 'color: #0066cc; font-size: 14px; font-weight: bold;');
