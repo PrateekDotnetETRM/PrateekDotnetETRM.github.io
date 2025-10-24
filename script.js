@@ -35,15 +35,13 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Progress Bars
 const skillObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const fills = entry.target.querySelectorAll('.fill');
-            fills.forEach(fill => {
+            entry.target.querySelectorAll('.fill').forEach(fill => {
                 const width = fill.style.width;
                 fill.style.width = '0%';
                 setTimeout(() => fill.style.width = width, 100);
@@ -51,7 +49,6 @@ const skillObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.7 });
-
 document.querySelectorAll('.skill-category').forEach(cat => skillObserver.observe(cat));
 
 // Navbar Scroll
@@ -60,9 +57,17 @@ window.addEventListener('scroll', () => {
     navbar.style.background = window.scrollY > 50 ? 'rgba(15, 15, 26, 0.98)' : 'rgba(15, 15, 26, 0.95)';
 });
 
-// Form
-document.querySelector('.contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Message sent! (Connect with Formspree for real emails)');
-    e.target.reset();
+// FORMSPREE SUCCESS MESSAGE
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    const button = this.querySelector('button');
+    button.innerHTML = 'Sending...';
+    button.disabled = true;
+
+    // Optional: Show success after submit
+    setTimeout(() => {
+        alert('Message sent successfully! I’ll reply soon.');
+        button.innerHTML = 'Send Message';
+        button.disabled = false;
+        this.reset();
+    }, 1000);
 });
